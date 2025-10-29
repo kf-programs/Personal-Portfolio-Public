@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+}
+
+@theme inline {
+  --color-hero-primary: var(--color-cyan-700);
+  --color-hero-secondary: var(--color-violet-500);
+}
+
+@utility app-link {
+  @apply text-blue-600 underline transition duration-150 ease-in-out hover:text-blue-800 hover:no-underline;
+}
+
+@utility app-link-white {
+  @apply text-white underline transition duration-150 ease-in-out hover:text-blue-200 hover:no-underline;
+}
+
+@utility button-white {
+  @apply inline-flex items-center justify-center px-5 py-2 bg-white text-gray-800 font-semibold text-xl rounded-lg shadow-md hover:cursor-pointer hover:shadow-lg hover:bg-violet-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50;
+}
+
+@utility button-blue {
+  @apply inline-flex items-center justify-center px-5 py-2 bg-cyan-600 text-white font-semibold text-xl rounded-lg shadow-md hover:cursor-pointer hover:shadow-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/50;
+}
+
+@utility button-violet {
+  @apply inline-flex items-center justify-center px-5 py-2 bg-violet-600 text-white font-semibold text-xl rounded-lg shadow-md hover:cursor-pointer hover:shadow-lg hover:bg-violet-700 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500/50;
+}
+
+@utility hero-gradient-bg {
+  @apply bg-gradient-to-tl from-cyan-100 via-cyan-600 to-violet-500;
+}
+
+@utility hero-gradient-text {
+  @apply hero-gradient-bg bg-clip-text text-transparent;
+}
+
+@utility text-glow-heavy {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+@utility text-glow-light {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+@utility heading-pop {
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+
