@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -11,6 +11,8 @@ import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const hideFooterCTA = location.pathname === '/contact'
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <header className="bg-white shadow sticky top-0 z-50 relative">
@@ -76,7 +78,8 @@ export default function App() {
       </main>
 
       <footer className="container mx-auto">
-        <div className={`flex justify-center border-double border-6 border-violet-500 bg-white rounded-3xl shadow-2xl`}>
+        {!hideFooterCTA && (
+          <div className={`flex justify-center border-double border-6 border-violet-500 bg-white rounded-3xl shadow-2xl`}>
             <div className={`flex w-full pt-4`}>
               <div className="w-full md:px-28 mx-auto">
                 <div className={`w-full  mx-auto p-3 text-hero-primary`}>
@@ -88,17 +91,18 @@ export default function App() {
                     </p>
                 </div>
                 <div className='flex items-center justify-center pb-7'>
-                          <Link
-                          aria-label="Go to Contact page"
-                          to="/contact"
-                          className="button-blue"
-                        >
-                          Contact Me
-                        </Link>
-                      </div>
+                  <Link
+                    aria-label="Go to Contact page"
+                    to="/contact"
+                    className="button-hero-primary"
+                  >
+                    Contact Me
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+        )}
           
           
           <div className='text-sm text-slate-600 text-center p-4'>© {new Date().getFullYear()} Your Name</div>
