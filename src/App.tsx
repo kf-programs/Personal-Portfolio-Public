@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Engineering from './pages/Engineering'
@@ -74,6 +75,8 @@ export default function App() {
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/small-business" element={<SmallBusiness />} />
           <Route path="/ai-integration" element={<AiIntegration />} />
+          {/* catch-all for unknown routes */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
